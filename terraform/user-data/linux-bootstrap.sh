@@ -35,3 +35,25 @@ apt-get install -y osquery
 
 systemctl enable osqueryd || true
 systemctl restart osqueryd || true
+
+echo "[+] Downloading simulation scripts"
+
+cd /opt/lab
+
+curl -O https://raw.githubusercontent.com/rubiacbferreira/endpoint-detection-lab/main/simulations/linux/suspicious_process.sh
+curl -O https://raw.githubusercontent.com/rubiacbferreira/endpoint-detection-lab/main/simulations/linux/persistence.sh
+curl -O https://raw.githubusercontent.com/rubiacbferreira/endpoint-detection-lab/main/simulations/linux/network_activity.sh
+
+chmod +x *.sh
+
+echo "[+] Running simulations"
+
+./suspicious_process.sh
+./persistence.sh
+./network_activity.sh
+
+sleep 5
+
+echo "[+] Generating detection evidence"
+
+osqueryi "select * from file where path = '/opt/lab/index.html';" > /opt/lab/detection-result.json

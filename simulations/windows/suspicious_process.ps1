@@ -1,8 +1,8 @@
-Write-Output "[+] Creating persistence"
+Write-Output "[+] Simulating suspicious process execution"
 
-New-ItemProperty `
-  -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Run" `
-  -Name "LabPersistence" `
-  -Value "notepad.exe"
+Start-Process powershell.exe
+Start-Process cmd.exe
+
+Start-Sleep 2
 
 Write-Output "[+] Done"
