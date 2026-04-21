@@ -1,0 +1,5 @@
+aws_region      = "us-east-1"
+admin_ip_cidr   = "X.X.X.X/32"
+project_name    = "endpoint-lab"
+environment     = "dev"
+

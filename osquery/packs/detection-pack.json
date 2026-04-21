@@ -1,0 +1,20 @@
+{
+  "schedule": {
+    "suspicious_processes": {
+      "query": "SELECT name, path, cmdline FROM processes WHERE name IN ('bash','sh','nc','curl','wget','powershell.exe','cmd.exe');",
+      "interval": 60
+    },
+    "startup_persistence": {
+      "query": "SELECT * FROM startup_items;",
+      "interval": 120
+    },
+    "cron_persistence": {
+      "query": "SELECT * FROM crontab;",
+      "interval": 120
+    },
+    "network_activity": {
+      "query": "SELECT * FROM listening_ports;",
+      "interval": 60
+    }
+  }
+}
