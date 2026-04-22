@@ -45,10 +45,10 @@ try {
 
     Write-Output "[+] Generating detection evidence"
 
-    & "C:\Program Files\osquery\osqueryi.exe" `
+    & "C:\Program Files\osquery\osqueryi.exe" --json `
     "select name, path from processes where name like '%powershell%';" `
     | Out-File "C:\Lab\detection-result.json"
-
+    
     # ================================
     # ✅ FINAL STATUS
     # ================================

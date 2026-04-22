@@ -56,4 +56,4 @@ sleep 5
 
 echo "[+] Generating detection evidence"
 
-osqueryi "select * from file where path = '/opt/lab/index.html';" > /opt/lab/detection-result.json
+osqueryi --json "select * from file where path = '/opt/lab/index.html';" > /opt/lab/detection-result.json
